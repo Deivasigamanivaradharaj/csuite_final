@@ -49,7 +49,7 @@
 }
 
 .ela-choice {
-  width:100%;
+  width: 100%;
 }
 
 .ela-question-info-cnt {
@@ -130,9 +130,96 @@
   gap: 0.5rem;
 }
 
+.justify-section-cnt {
+  min-height: 10rem;
+  justify-content: space-around;
+}
+
+.section-indicator {
+  width: fit-content;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #8949ff67;
+  padding-right: 0.2rem;
+}
+
+.section-indicator p {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.section-cnt {
+  /* width: 30%; */
+  flex: 1;
+  min-height: 100%;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  flex-wrap: wrap;
+  /* background: #e8d2ff; */
+  background: #d1d1d1;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 1px 1px 5px 1px rgb(205, 205, 205);
+  }
+}
+
+.questions-block-cover {
+  flex: 1;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.ela-update-btn {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background: #8949ff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 1px 1px 5px 1px #aa84ef;
+  }
+}
+.ela-actions-btn-cnt {
+  width: 100%;
+}
+
+.ela-new-section-btn {
+  width: 2rem;
+  min-height: 100%;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: gray;
+  &:hover {
+    background: #8949ff;
+  }
+}
+
+.new-section-btn-text{
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: 500;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
 @media (min-width: 700px) {
-  .ela-inputs-cnt{
-    padding: .5rem;
+  .ela-inputs-cnt {
+    padding: 0.5rem;
     margin-top: 0;
   }
   .ela-choice {
@@ -147,7 +234,6 @@
     width: 35%;
     padding-top: 0;
     border: none;
-
   }
   .ela-choice-cnt {
     padding: 1rem;
@@ -155,13 +241,25 @@
   .ela-dropdown-cnt {
     bottom: -12.5rem;
   }
+  .ela-new-section-btn{
+    display: flex;
+    width: 5rem;
+  }
+
+  .new-section-btn-text{
+    font-size: 1.2rem;
+  }
 }
 
 @media (min-width: 1000px) {
-  .ela-inputs-cnt{
+  .ela-inputs-cnt {
     padding: 1rem;
   }
   .ela-test-page {
     width: calc(100% - 200px);
+  }
+  .ela-actions-btn-cnt {
+    width: 90%;
+    justify-content: space-around;
   }
 }

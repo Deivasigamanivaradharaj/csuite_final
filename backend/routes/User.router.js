@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User.model');
 const CourseDetail = require('../models/CourseDetails.model');
 const { findUserByEmail, insertUser } = require('../models/User.model');
+const QuestionModel = require('../models/Question.model');
 
 const userRouter = Router();
 
@@ -249,7 +250,7 @@ userRouter.get('/progress/:userId/:courseId', async (req, res) => {
 
 userRouter.get('/fetchela', async (req, res) => {
   try {
-    const ela = await ELA.findOne();  // Assuming ELA is another model
+    const ela = await QuestionModel.findOne();  // Assuming ELA is another model
     res.json(ela);
   } catch (err) {
     console.log(err.stack);

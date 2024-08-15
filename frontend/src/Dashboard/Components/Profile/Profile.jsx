@@ -7,6 +7,7 @@ import mailSVG from "../Assets/SVG/mailSVG.svg";
 import axios from "axios";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import ErrorDataFetchOverlay from "../Error/ErrorDataFetchOverlay";
+import { fetchUserData } from "../../../api/baseapi";
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -38,18 +39,22 @@ const Profile = () => {
 
   useEffect(() => {
     const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+    const id = localStorage.getItem('userid')
 
     axios
-      .get(`https://csuite-production.up.railway.app/api/user`)
+      .get(`http://localhost:5000/api/user/${id}`)
       .then((response) => {
-        const data = response.data.users[1];
+
+        console.log(response.data.user)
+        // const data = response.data.users[1];
+        const data = response.data.user;
         // console.log(response.data.users[0]._id);
         setProfileData(data);
 
         // usid
         const csuiteUserInfo = {
           userID: data._id,
-          coursePurchased: data.coursePurchased.map((x) => x.courseId) || [],
+          coursePurchased: data.coursePurchased!=[] ? data.coursePurchased.map((x) => x.courseId) : [],
         };
         localStorage.setItem("userInfo", JSON.stringify(csuiteUserInfo));
         //
@@ -74,6 +79,17 @@ const Profile = () => {
         setFetchError(true);
       });
   }, []);
+
+
+  async function fetchData(id){
+    try {
+      const res = await fetchUserData(id);
+      console.log(res)
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
 
   const handleEditClick = () => {
     setIsEditing(!isEditing);

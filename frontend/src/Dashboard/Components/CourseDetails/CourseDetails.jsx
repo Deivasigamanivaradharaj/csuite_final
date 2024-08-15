@@ -66,15 +66,18 @@ const CourseDetails = () => {
       const stripe = await loadStripe("pk_test_51PUVZZRrG0ZkGYrr3y8s7r35TsoywTtRefCFB64KvnZNuuU2kotNOBp8AOZMPfyejU5Ah1DG4vXjwyig9AZXFmNv00Etljhki6");
       let data = {name:name,id:id, price:price}
 
-      const response = await axios.post("https://csuite-production.up.railway.app/api/payment/create-checkout-session",data, {
+      const response = await axios.post("http://localhost:5000/api/payment/create-checkout-session",data, {
         headers: { 'Content-Type': 'application/json' }, // Set Content-Type header
       })
 
-      console.log(response);
+      console.log(response)
       
       const result = stripe.redirectToCheckout({
         sessionId:response.data.id
       });
+
+      localStorage.setItem("payment", JSON.stringify(response.data))
+      localStorage.setItem("paymentresult", JSON.stringify(result))
     
       if (result.error) {
         console.log(result.error);

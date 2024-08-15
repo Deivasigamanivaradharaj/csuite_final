@@ -103,7 +103,7 @@ export const googlePopup = async (navigate, Courseid) => {
 function login(data) {
   // Assuming data is already an object
   const userData = data;
-  console.log(data)
+  console.log(data._id)
   toast.success("Login Successful!");
   localStorage.setItem("userDataUpdated", JSON.stringify(userData));
   localStorage.setItem("isloggedin", true);

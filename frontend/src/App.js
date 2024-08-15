@@ -43,7 +43,7 @@ import AddnewCourse from './Admin/components/courses/new-course/AddnewCourse';
 import EditCourse from './Admin/components/courses/edit-course/EditCourse';
 import Allusers from './Admin/components/userManagement/Allusers';
 import PurchasesPage from './Admin/components/purchases/PurchasesPage';
-import AllInstructors from './Admin/components//Instructors/AllInstructors';
+import AllInstructors from './Admin/components/Instructors/AllInstructors';
 import ELApage from "./Admin/components/ELA/ELApage";
 
 

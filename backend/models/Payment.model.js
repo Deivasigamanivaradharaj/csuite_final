@@ -50,7 +50,7 @@ async function createCheckoutSession(item, id) {
         success_url: `https://csuite-academy.netlify.app/home/courseDetails/`+id+`?status=success`,
         cancel_url: `https://csuite-academy.netlify.app/home/courseDetails/`+id+`?status=failed`
     });
-    return session.id;
+    return {id:session.id, couseid:id,other:session,};
 }
 
 module.exports = { createCheckoutSession };

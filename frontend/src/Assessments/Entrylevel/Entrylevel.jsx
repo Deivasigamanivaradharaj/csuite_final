@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { fetchela } from "../../api/baseapi";
 
 //import css
 import './entrylevel.css';
@@ -26,15 +27,22 @@ const Entrylevel = () => {
     let [totalQuestions, settotalQuestions] = useState(0);
 
     useEffect(()=>{
-        fetchela();
+        fetchELA();
         },[])
       
-        async function fetchela(){
+        async function fetchELA(){
           try {
-            const response = await fetchela();
+
+            axios
+            .get(`http://localhost:5000/api/question`)
+            .then((res) => {
+                console.log(res.data[0])
+            })  
+
+            const response = await axios.get(`http://localhost:5000/api/question`);
             // console.log(JSON.parse(response.data))
             // console.log(questionData)
-            var data = JSON.parse(response.data);
+            var data = response.data[0];
             localStorage.setItem("TimeLeft", data.time)
             settime(data.time);
             localStorage.setItem("questionData", JSON.stringify(data))

@@ -19,3 +19,5 @@ export const signupCheck = (userdata, config) =>
   API.post("/api/user/signup", userdata, config);
 
 export const fetchela = () => API.get("/api/user/fetchela");
+
+export const fetchUserData = (id) => API.get(`/api/user/${id}`)
